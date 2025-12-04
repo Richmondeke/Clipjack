@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>ClipJack - AI Video Clipper & Shorts Maker</title>
+    <meta name="title" content="ClipJack - AI Video Clipper & Shorts Maker" />
+    <meta name="description" content="Turn long videos into viral shorts instantly. The ultimate AI clipping dashboard for creators." />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://clipjack.ai/" />
+    <meta property="og:title" content="ClipJack - AI Video Clipper" />
+    <meta property="og:description" content="Turn long videos into viral shorts instantly." />
+    <meta property="og:image" content="https://cdn3d.iconscout.com/3d/premium/thumb/video-editing-5481232-4569723.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://clipjack.ai/" />
+    <meta property="twitter:title" content="ClipJack - AI Video Clipper" />
+    <meta property="twitter:description" content="Turn long videos into viral shorts instantly." />
+    <meta property="twitter:image" content="https://cdn3d.iconscout.com/3d/premium/thumb/video-editing-5481232-4569723.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Manrope', 'sans-serif'],
+            },
+            colors: {
+              primary: '#6366f1', // Indigo 500
+              secondary: '#4f46e5', // Indigo 600
+              background: '#f3f4f6', // Gray 100
+              surface: '#ffffff',
+            },
+            animation: {
+              blob: "blob 7s infinite",
+              draw: "draw 3s linear infinite",
+            },
+            keyframes: {
+              blob: {
+                "0%": {
+                  transform: "translate(0px, 0px) scale(1)",
+                },
+                "33%": {
+                  transform: "translate(30px, -50px) scale(1.1)",
+                },
+                "66%": {
+                  transform: "translate(-20px, 20px) scale(0.9)",
+                },
+                "100%": {
+                  transform: "translate(0px, 0px) scale(1)",
+                },
+              },
+              draw: {
+                "0%": { strokeDashoffset: "250" },
+                "50%": { strokeDashoffset: "0" },
+                "100%": { strokeDashoffset: "250" }
+              }
+            },
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.45.4"
+  }
+}
+</script>
+</head>
+  <body class="bg-background dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased h-screen overflow-hidden font-sans transition-colors duration-200 overscroll-none">
+    <div id="root" class="h-full"></div>
+    <script type="module" src="./index.tsx"></script>
+  </body>
+</html>

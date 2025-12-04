@@ -1,0 +1,238 @@
+
+import React, { useState } from 'react';
+import { Video, Sparkles, Zap, Mic, Users, ArrowRight, CheckCircle, Smartphone, ChevronDown, ChevronUp, Camera, Moon, Sun, Scissors } from 'lucide-react';
+
+interface LandingPageProps {
+  onLogin: () => void;
+  onSignup: () => void;
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+}
+
+export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onSignup, isDarkMode, toggleTheme }) => {
+  return (
+    <div className="h-full bg-white dark:bg-gray-950 text-gray-900 dark:text-white font-sans overflow-y-auto scroll-smooth transition-colors duration-300">
+        {/* Navigation */}
+        <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto sticky top-0 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl z-50 border-b border-gray-100 dark:border-gray-800">
+            <div className="flex items-center gap-2">
+                <div className="w-10 h-10 flex items-center justify-center">
+                    <svg viewBox="0 0 100 50" className="w-full h-full drop-shadow-sm">
+                        <defs>
+                            <linearGradient id="lp_logo_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#4f46e5" />
+                                <stop offset="100%" stopColor="#9333ea" />
+                            </linearGradient>
+                        </defs>
+                        <path 
+                            fill="none" 
+                            stroke="url(#lp_logo_grad)" 
+                            strokeWidth="10" 
+                            strokeLinecap="round"
+                            className="animate-draw"
+                            strokeDasharray="250"
+                            d="M20,25 C20,5 45,5 50,25 C55,45 80,45 80,25 C80,5 55,5 50,25 C45,45 20,45 20,25 z"
+                        />
+                    </svg>
+                </div>
+                <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">ClipJack</span>
+            </div>
+            <div className="flex items-center gap-4">
+                <button 
+                    onClick={toggleTheme}
+                    className="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+                    title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                >
+                    {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
+                <button onClick={onLogin} className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-white font-medium transition-colors">
+                    Log in
+                </button>
+                <button onClick={onSignup} className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-bold transition-all shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:-translate-y-0.5">
+                    Sign Up Free
+                </button>
+            </div>
+        </nav>
+
+        {/* Hero Section */}
+        <header className="px-6 pt-20 pb-20 lg:pt-32 lg:pb-32 max-w-7xl mx-auto text-center relative overflow-hidden">
+            {/* Background Blurs */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full pointer-events-none">
+                <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200 dark:bg-purple-900/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-30 animate-blob" />
+                <div className="absolute top-20 right-10 w-72 h-72 bg-indigo-200 dark:bg-indigo-900/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
+            </div>
+
+            <div className="relative z-10 max-w-4xl mx-auto">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-sm font-bold mb-8 border border-indigo-100 dark:border-indigo-800/50">
+                    <Sparkles size={14} />
+                    <span>AI Video Clipper & Shorts Maker</span>
+                </div>
+                
+                <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-8 leading-tight">
+                    Turn long videos into <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">viral shorts</span> in seconds.
+                </h1>
+                
+                <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+                    The ultimate tool for creators. Clip YouTube videos or generate shorts from scratch using the power of Gemini and Veo.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onClick={onSignup} className="w-full sm:w-auto px-10 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-bold text-lg hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-xl shadow-gray-500/20 dark:shadow-white/10">
+                        Start Clipping <ArrowRight size={20} />
+                    </button>
+                </div>
+                
+                <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500 dark:text-gray-400 font-medium">
+                    <div className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500" /> No credit card required</div>
+                    <div className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500" /> Free starter credits</div>
+                </div>
+            </div>
+        </header>
+
+        {/* Features Grid */}
+        <section className="py-24 bg-gray-50 dark:bg-gray-900/50" id="features">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">Powerful Creation Tools</h2>
+                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Everything you need to grow your channel.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <FeatureCard 
+                        icon={<Scissors className="text-indigo-600 dark:text-indigo-400" size={32} />}
+                        title="AI Video Clipper"
+                        description="Paste a YouTube link and let our AI find the most viral moments, crop them, and add captions automatically."
+                        color="bg-indigo-50 dark:bg-indigo-900/20"
+                        status="NEW"
+                    />
+                    <FeatureCard 
+                        icon={<Smartphone className="text-rose-600 dark:text-rose-400" size={32} />}
+                        title="Shorts Maker"
+                        description="Generate fully edited shorts from just a simple text idea. Includes script, AI voiceover, and visuals."
+                        color="bg-rose-50 dark:bg-rose-900/20"
+                        status="LIVE"
+                    />
+                </div>
+            </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 bg-white dark:bg-gray-950">
+            <div className="max-w-3xl mx-auto px-6">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+                    <p className="text-gray-500 dark:text-gray-400">Everything you need to know about ClipJack.</p>
+                </div>
+                
+                <div className="space-y-4">
+                    <FAQItem 
+                        question="Is ClipJack free to use?" 
+                        answer="Yes! You get 5 free credits upon signing up to try out all the features. No credit card is required to start."
+                    />
+                    <FAQItem 
+                        question="Can I use the clips for commercial purposes?" 
+                        answer="Yes, videos generated with your own API keys or paid credits are yours to use commercially."
+                    />
+                    <FAQItem 
+                        question="What AI models are used?" 
+                        answer="We leverage the best-in-class models: Google Gemini 2.5 for analysis and scripting, Google Veo for video generation, and ElevenLabs for speech."
+                    />
+                </div>
+            </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-white dark:bg-gray-950 py-12 border-t border-gray-100 dark:border-gray-900">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+                 <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 flex items-center justify-center">
+                        <svg viewBox="0 0 100 50" className="w-full h-full grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
+                            <defs>
+                                <linearGradient id="footer_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stopColor="#4f46e5" />
+                                    <stop offset="100%" stopColor="#9333ea" />
+                                </linearGradient>
+                            </defs>
+                            <path 
+                                fill="none" 
+                                stroke="url(#footer_grad)" 
+                                strokeWidth="10" 
+                                strokeLinecap="round"
+                                className="animate-draw"
+                                strokeDasharray="250"
+                                d="M20,25 C20,5 45,5 50,25 C55,45 80,45 80,25 C80,5 55,5 50,25 C45,45 20,45 20,25 z"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <span className="font-bold text-gray-900 dark:text-white block text-lg">ClipJack</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-500">AI Video Production</span>
+                    </div>
+                </div>
+                
+                <div className="flex items-center gap-8">
+                    <button onClick={onSignup} className="text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors">
+                        Sign Up Now
+                    </button>
+                    <span className="text-sm text-gray-400 font-medium">
+                        Created by <span className="text-gray-600 dark:text-gray-400 font-bold">Guava Labs</span>
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+  );
+};
+
+// --- Subcomponents ---
+
+const FeatureCard: React.FC<{
+    icon: React.ReactNode, 
+    title: string, 
+    description: string, 
+    color: string, 
+    status: 'LIVE' | 'BETA' | 'COMING SOON' | 'NEW'
+}> = ({icon, title, description, color, status}) => (
+    <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-indigo-200 dark:hover:border-indigo-500/50 hover:shadow-xl dark:hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] transition-all duration-300 group cursor-default relative overflow-hidden">
+        <div className={`absolute top-4 right-4 text-[10px] font-bold px-2 py-1 rounded-full border ${
+            status === 'LIVE' ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-100 dark:border-green-800' : 
+            status === 'NEW' ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 border-indigo-100 dark:border-indigo-800' :
+            'bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-gray-100 dark:border-gray-600'
+        }`}>
+            {status}
+        </div>
+
+        <div className={`w-16 h-16 ${color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+            {icon}
+        </div>
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{title}</h3>
+        <p className="text-base text-gray-500 dark:text-gray-400 leading-relaxed">{description}</p>
+    </div>
+);
+
+const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <div className="border-b border-gray-100 dark:border-gray-800 last:border-0">
+        <button 
+          className="w-full py-6 flex items-center justify-between text-left focus:outline-none group"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span className={`text-lg font-medium transition-colors ${isOpen ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400'}`}>
+            {question}
+          </span>
+          {isOpen ? (
+            <ChevronUp className="text-indigo-600 dark:text-indigo-400 transition-transform duration-300" />
+          ) : (
+            <ChevronDown className="text-gray-400 dark:text-gray-500 transition-transform duration-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400" />
+          )}
+        </button>
+        <div 
+            className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 pb-6' : 'grid-rows-[0fr] opacity-0'}`}
+        >
+          <div className="overflow-hidden">
+            <p className="text-gray-500 dark:text-gray-400 leading-relaxed pr-8">{answer}</p>
+          </div>
+        </div>
+      </div>
+    );
+};
