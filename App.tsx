@@ -11,6 +11,7 @@ import { UpdatePassword } from './components/UpdatePassword';
 import { UpgradeModal } from './components/UpgradeModal';
 import { AdminDashboard } from './components/AdminDashboard';
 import { Integrations } from './components/Integrations';
+import { CampaignsDashboard } from './components/CampaignsDashboard'; // Imported
 import { AppView, Template, Project, ProjectStatus } from './types';
 import { generateVideo, checkVideoStatus, getAvatars, getVoices } from './services/heygenService';
 import { fetchProjects, saveProject, updateProjectStatus, deductCredits, refundCredits, addCredits } from './services/projectService';
@@ -339,6 +340,8 @@ const App: React.FC = () => {
         );
       case AppView.PROJECTS:
         return <ProjectList projects={projects} onPollStatus={handleRefreshProjects} />;
+      case AppView.CAMPAIGNS:
+        return <CampaignsDashboard onChangeView={setCurrentView} />;
       case AppView.ADMIN:
         return <AdminDashboard initialTab="OVERVIEW" />;
       case AppView.ADMIN_USERS:

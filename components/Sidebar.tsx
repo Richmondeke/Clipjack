@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { LayoutTemplate, Video, FolderOpen, Settings, HelpCircle, Upload, LogOut, Coins, PlusCircle, ShieldCheck, Users, Sun, Moon, Share2 } from 'lucide-react';
+import { LayoutTemplate, Video, FolderOpen, Settings, HelpCircle, Upload, LogOut, Coins, PlusCircle, ShieldCheck, Users, Sun, Moon, Share2, Rocket } from 'lucide-react';
 import { AppView } from '../types';
 
 interface SidebarProps {
@@ -88,7 +88,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, isM
             label="Studio"
             onClick={onChangeView}
           />
-          {/* Assets Removed as requested */}
+          <NavItem
+            view={AppView.CAMPAIGNS}
+            current={currentView}
+            icon={<Rocket />}
+            label="Campaigns"
+            onClick={onChangeView}
+          />
 
           <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 px-4 mt-6">
             Manage
